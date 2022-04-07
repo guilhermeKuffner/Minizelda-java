@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 		public static int SCALE= 3;
 		public Player player;
 		public World world;
+		public int dir = 1;
 		
 		public Game() 
 		{
@@ -101,10 +102,8 @@ import javax.swing.JFrame;
 		@Override
 		public void keyTyped(KeyEvent e) 
 		{
-			if(e.getKeyCode()== KeyEvent.VK_P)
-			{
-				System.out.print("io");
-			}
+			
+			
 			
 		
 		}
@@ -115,11 +114,13 @@ import javax.swing.JFrame;
 			if(e.getKeyCode()== KeyEvent.VK_RIGHT)
 			{
 				player.right = true;
+				player.dir=1;
 				
 			}
 			else if(e.getKeyCode()== KeyEvent.VK_LEFT)
 			{
 				player.left = true;
+				player.dir=-1;
 			}
 			
 			if(e.getKeyCode()== KeyEvent.VK_DOWN)
@@ -140,9 +141,16 @@ import javax.swing.JFrame;
 
 		@Override
 		public void keyReleased(KeyEvent e) {
+			
 			if(e.getKeyCode()== KeyEvent.VK_RIGHT)
 			{
 				player.right = false;
+				
+				
+			}
+			if(e.getKeyCode()== KeyEvent.VK_Z)
+			{
+				player.shoot = true;
 				
 				
 			}
